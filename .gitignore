@@ -1,0 +1,25 @@
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS settings
+.vs/
+*.vsidx
+Edi.ContentIndex/
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+
+# NuGet
+*.nupkg
+packages/
