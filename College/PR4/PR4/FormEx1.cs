@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PR4
 {
-    public partial class Form1 : Form
+    public partial class FormEx1 : Form
     {
-        public Form1()
+        public FormEx1()
         {
             InitializeComponent();
         }
