@@ -16,5 +16,18 @@ namespace PR4
         {
             InitializeComponent();
         }
+
+        private void binaryArr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar != '0' && e.KeyChar != '1' && e.KeyChar != (char)Keys.Back)
+            { 
+                e.Handled = true; 
+            }
+        }
+
+        private void btnTranslate_Click(object sender, EventArgs e)
+        {
+            Result.Text = $"Результат переводу: {Convert.ToInt32(binaryArr.Text, 2).ToString()}";
+        }
     }
 }
