@@ -1,0 +1,58 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500">
+    <Grid>
+		<DockPanel LastChildFill="True">
+			<StackPanel  DockPanel.Dock="Top" >
+				<Label Name="lblTemp" Content="" Height="40" FontSize="20" HorizontalContentAlignment="Right"/>
+				<TextBox Name="tbCurrAct" Text="0" TextAlignment="Right" VerticalContentAlignment="Center" FontSize="40" Height="70"/>
+			</StackPanel>
+				<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<Button Grid.Column="0"  Grid.Row="0" Name="btnPercent" FontSize="30" Content="%" Margin="5" Click="btnPercentClick"/>
+				<Button Grid.Column="1"  Grid.Row="0" Name="btnCE" FontSize="30" Content="CE" Margin="5" Click="btnClearClick"/>
+				<Button Grid.Column="2"  Grid.Row="0" Name="btnC" FontSize="30" Content="C" Margin="5" Click="btnClearEndClick"/>
+				<Button Grid.Column="3"  Grid.Row="0" Name="btnBack" FontSize="30" Content="←" Margin="5" Click="btnBackSpaceClick"/>
+				<Button Grid.Column="0"  Grid.Row="1" Name="btnFraction" FontSize="30" Content="1/x" Margin="5" Click="btnFractionClick"/>
+				<Button Grid.Column="1"  Grid.Row="1" Name="btnPow" FontSize="30" Content="x^2" Margin="5" Click="btnFractionClick"/>
+				<Button Grid.Column="2"  Grid.Row="1" Name="btnSqrt" FontSize="30" Content="x^1/2" Margin="5" Click="btnSqrtClick"/>
+				<Button Grid.Column="3"  Grid.Row="1" Name="btnDivide" FontSize="30" Content="/" Margin="5" Click="btnSignClick"/>
+				<Button Grid.Column="0"  Grid.Row="2" Name="btnOne" FontSize="30" Content="1" Margin="5" Background="#FFD4F1EF"   Click="btnNumberClick"/>
+				<Button Grid.Column="1"  Grid.Row="2" Name="btnTwo" FontSize="30" Content="2" Margin="5" Background="#FFD4F1EF"   Click="btnNumberClick"/>
+				<Button Grid.Column="2"  Grid.Row="2" Name="btnThree" FontSize="30" Content="3" Margin="5" Background="#FFD4F1EF" Click="btnNumberClick"/>
+				<Button Grid.Column="3"  Grid.Row="2" Name="btnMultiply" FontSize="30" Content="*" Margin="5" Click="btnSignClick"/>
+				<Button Grid.Column="0"  Grid.Row="3" Name="btnFour"	 FontSize="30" Content="4" Margin="5" Background="#FFD4F1EF"  Click="btnNumberClick"/>
+				<Button Grid.Column="1"  Grid.Row="3" Name="btnFive"	 FontSize="30" Content="5" Margin="5" Background="#FFD4F1EF"  Click="btnNumberClick"/>
+				<Button Grid.Column="2"  Grid.Row="3" Name="btnSix"		 FontSize="30" Content="6" Margin="5" Background="#FFD4F1EF"   Click="btnNumberClick"/>
+				<Button Grid.Column="3"  Grid.Row="3" Name="btnMinus"	 FontSize="30" Content="-" Margin="5" Click="btnSignClick"/>
+				<Button Grid.Column="0"  Grid.Row="4" Name="btnSeven"	 FontSize="30" Content="7" Margin="5" Background="#FFD4F1EF" Click="btnNumberClick"/>
+				<Button Grid.Column="1"  Grid.Row="4" Name="btnEight"	 FontSize="30" Content="8" Margin="5" Background="#FFD4F1EF" Click="btnNumberClick"/>
+				<Button Grid.Column="2"  Grid.Row="4" Name="btnNine"	 FontSize="30" Content="9" Margin="5" Background="#FFD4F1EF"  Click="btnNumberClick"/>
+				<Button Grid.Column="3"  Grid.Row="4" Name="btnPlus"	 FontSize="30" Content="+" Margin="5" Click="btnSignClick"/>
+				<Button Grid.Column="0"  Grid.Row="5" Name="btnChangeSign" FontSize="30" Content="+/-" Margin="5" Click="btnInvClick"/>
+				<Button Grid.Column="1"  Grid.Row="5" Name="btnZZZZZZero" FontSize="30" Content="0" Margin="5" Background="#FFD4F1EF" Click="btnNumberClick"/>
+				<Button Grid.Column="2"  Grid.Row="5" Name="btnPoint" FontSize="30" Content="." Margin="5" Click="btnPointClick"/>
+				<Button Grid.Column="3"  Grid.Row="5" Name="btnEqual" FontSize="30" Content="=" Margin="5" Background="#FF0053F7" Click="btnEqualClick"/>
+			</Grid>
+		</DockPanel>
+    </Grid>
+</Window>
