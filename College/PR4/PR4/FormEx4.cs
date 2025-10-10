@@ -16,5 +16,10 @@ namespace PR4
         {
             InitializeComponent();
         }
+
+        private void FormEx4_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -78,6 +78,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormEx1.resx">
+      <DependentUpon>FormEx1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEx2.resx">
+      <DependentUpon>FormEx2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEx3.resx">
+      <DependentUpon>FormEx3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEx4.resx">
+      <DependentUpon>FormEx4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
