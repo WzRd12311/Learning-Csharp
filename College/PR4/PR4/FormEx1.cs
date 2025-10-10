@@ -27,6 +27,9 @@ namespace PR4
 
         private void btnTranslate_Click(object sender, EventArgs e)
         {
+            if(binaryArr.Text.Length == 0)
+                MessageBox.Show("Поле вводу пусте", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             Result.Text = $"Результат переводу: {Convert.ToInt32(binaryArr.Text, 2).ToString()}";
         }
     }

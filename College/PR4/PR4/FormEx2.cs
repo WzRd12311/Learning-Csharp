@@ -25,6 +25,10 @@ namespace PR4
         {
             if (e.KeyCode == Keys.Enter) {
 
+                if(Element.Text.Length == 0){
+                    MessageBox.Show("Поле вводу пусте", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 if (Element.Text.Length > 5) {
                     MessageBox.Show("Елемент масиву завеликий.\n Максимальный розмір елементу = 5", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Element.Clear();
