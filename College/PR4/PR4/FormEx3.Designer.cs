@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labResult
@@ -66,6 +67,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(167, 73);
+            this.textBox1.MaxLength = 100;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 20);
             this.textBox1.TabIndex = 6;
@@ -80,11 +82,21 @@
             this.label1.Text = "У заданому рядку порахувати кількість слів. Розділювачем слів вважається\r\nодин аб" +
     "о кілька прогалин.\r\n";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(343, 37);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 26);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Максимальна кількість \r\nсимволів = 100";
+            // 
             // FormEx3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 261);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.labResult);
             this.Controls.Add(this.btnCount);
             this.Controls.Add(this.label2);
@@ -104,5 +116,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCheck = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Element = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,14 +44,14 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Результат перевірки: ";
             // 
-            // button1
+            // btnCheck
             // 
-            this.button1.Location = new System.Drawing.Point(183, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Перевірити симетричність";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCheck.Location = new System.Drawing.Point(183, 116);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(171, 23);
+            this.btnCheck.TabIndex = 8;
+            this.btnCheck.Text = "Перевірити симетричність";
+            this.btnCheck.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -62,12 +62,12 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Введіть массив по елементно: ";
             // 
-            // textBox1
+            // Element
             // 
-            this.textBox1.Location = new System.Drawing.Point(183, 76);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(171, 20);
-            this.textBox1.TabIndex = 6;
+            this.Element.Location = new System.Drawing.Point(183, 76);
+            this.Element.Name = "Element";
+            this.Element.Size = new System.Drawing.Size(171, 20);
+            this.Element.TabIndex = 6;
             // 
             // label1
             // 
@@ -85,9 +85,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 261);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Element);
             this.Controls.Add(this.label1);
             this.Name = "FormEx2";
             this.Text = "FormEx2";
@@ -99,9 +99,9 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Element;
         private System.Windows.Forms.Label label1;
     }
 }
