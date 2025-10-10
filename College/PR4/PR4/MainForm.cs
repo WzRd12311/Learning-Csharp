@@ -12,34 +12,46 @@ namespace PR4
 {
     public partial class MainForm : Form
     {
+
+        private Form currentForm = null;
+
         public MainForm()
         {
             InitializeComponent();
         }
 
+        private void OpenForm(Form newForm)
+        {
+            if (currentForm != null && !currentForm.IsDisposed)
+            {
+                currentForm.Close();
+            }
+
+            currentForm = newForm;
+            currentForm.MdiParent = this;
+            currentForm.Show();
+        }
+
         private void Ex1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEx1 formEx1 = new FormEx1();
-            formEx1.MdiParent = this;
-            formEx1.Show();
+            OpenForm(new FormEx1());
         }
         private void Ex2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEx2 formEx2 = new FormEx2();
-            formEx2.MdiParent = this;
-            formEx2.Show();
+            OpenForm(new FormEx2());
         }
         private void Ex3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEx3 formEx3 = new FormEx3();
-            formEx3.MdiParent = this;
-            formEx3.Show();
+            OpenForm(new FormEx3());
         }
         private void Ex4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormEx4 formEx4 = new FormEx4();
-            formEx4.MdiParent = this;
-            formEx4.Show();
+            OpenForm(new FormEx4());
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

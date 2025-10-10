@@ -69,43 +69,43 @@
             // першеЗавданняToolStripMenuItem
             // 
             this.першеЗавданняToolStripMenuItem.Name = "першеЗавданняToolStripMenuItem";
-            this.першеЗавданняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.першеЗавданняToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.першеЗавданняToolStripMenuItem.Text = "Перше завдання";
             this.першеЗавданняToolStripMenuItem.Click += new System.EventHandler(this.Ex1ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(172, 6);
             // 
             // другеЗавданняToolStripMenuItem
             // 
             this.другеЗавданняToolStripMenuItem.Name = "другеЗавданняToolStripMenuItem";
-            this.другеЗавданняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.другеЗавданняToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.другеЗавданняToolStripMenuItem.Text = "Друге завдання";
             this.другеЗавданняToolStripMenuItem.Click += new System.EventHandler(this.Ex2ToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(172, 6);
             // 
             // третєЗавданняToolStripMenuItem
             // 
             this.третєЗавданняToolStripMenuItem.Name = "третєЗавданняToolStripMenuItem";
-            this.третєЗавданняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.третєЗавданняToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.третєЗавданняToolStripMenuItem.Text = "Третє завдання";
             this.третєЗавданняToolStripMenuItem.Click += new System.EventHandler(this.Ex3ToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(172, 6);
             // 
             // четвертеЗавданняToolStripMenuItem
             // 
             this.четвертеЗавданняToolStripMenuItem.Name = "четвертеЗавданняToolStripMenuItem";
-            this.четвертеЗавданняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.четвертеЗавданняToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.четвертеЗавданняToolStripMenuItem.Text = "Четверте завдання";
             this.четвертеЗавданняToolStripMenuItem.Click += new System.EventHandler(this.Ex4ToolStripMenuItem_Click);
             // 
@@ -114,6 +114,7 @@
             this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
             this.вихідToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.вихідToolStripMenuItem.Text = "Вихід";
+            this.вихідToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -124,7 +125,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Практична №4";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
