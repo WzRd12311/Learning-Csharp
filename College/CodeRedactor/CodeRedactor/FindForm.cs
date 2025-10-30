@@ -37,8 +37,9 @@ namespace CodeRedactor
                 MessageBox.Show("Ошибка: Поле для поиска не может быть пустым", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
            
+            string searchText = tbSubStr.Text;
+
             RichTextBoxFinds options = RichTextBoxFinds.None;
             if (radioEnd.Checked)
             {
@@ -50,44 +51,59 @@ namespace CodeRedactor
             }
 
             int start = 0;
+            int end = 0;
             var mainRtb = mainForm.MainRTB;
 
             if (options.HasFlag(RichTextBoxFinds.Reverse))
             {
-                start = mainRtb.SelectionStart;
+                start = 0;
+                end = mainRtb.SelectionStart > 0 ? mainRtb.SelectionStart - 1 : -1;
+                if (end < 0)
+                {
+                    end = mainRtb.TextLength; 
+                }
             }
             else
             {
                 start = mainRtb.SelectionStart + mainRtb.SelectionLength;
+                end = mainRtb.TextLength;
+                if (start >= mainRtb.TextLength)
+                {
+                    start = 0; 
+                }
             }
 
-            if (start >= mainRtb.TextLength && !options.HasFlag(RichTextBoxFinds.Reverse))
+            int foundPosition;
+
+            if (options.HasFlag(RichTextBoxFinds.Reverse))
             {
-                start = 0; 
-            }
-            if (start <= 0 && options.HasFlag(RichTextBoxFinds.Reverse))
-            {
-                start = mainRtb.TextLength; 
+                foundPosition = mainRtb.Find(searchText, start, end, options);
             }
 
-            string searchText = tbSubStr.Text;
-            int foundPosition = mainRtb.Find(searchText, start, options);
+            else 
+            {
+                foundPosition = mainRtb.Find(searchText, start, options);
+            }
 
             if (foundPosition == -1)
             {
-                int restartPosition = options.HasFlag(RichTextBoxFinds.Reverse) ? mainRtb.TextLength : 0;
-                foundPosition = mainRtb.Find(searchText, restartPosition, options);
+                if (options.HasFlag(RichTextBoxFinds.Reverse))
+                {
+                    foundPosition = mainRtb.Find(searchText, 0, mainRtb.TextLength, options);
+                }
+                else
+                {
+                    foundPosition = mainRtb.Find(searchText, 0, options);
+                }
 
                 if (foundPosition == -1)
                 {
                     MessageBox.Show($"Не удается найти \"{searchText}\"", "Результат поиска", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                 }
             }
-
             if (foundPosition != -1)
-            {
-                mainForm.Activate();
-            }
+                mainForm.Activate();     
         }
     }
 }
