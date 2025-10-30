@@ -47,7 +47,6 @@ namespace CodeRedactor
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                     currentFilePath = ofd.FileName;
-                    
                 try
                 {
                     StreamReader r = new StreamReader(currentFilePath);
@@ -80,7 +79,6 @@ namespace CodeRedactor
 
                 if(sfd.ShowDialog() == DialogResult.OK)
                     SaveToFile(sfd.FileName);
-
             }
         }
 
@@ -88,8 +86,6 @@ namespace CodeRedactor
         {
             this.Close();
         }
-
-
 
         private void SaveToFile(string filePath)
         {
@@ -105,59 +101,12 @@ namespace CodeRedactor
             isModified = true;
         }
 
-        private bool CheckSaveChanged() {
-            if (isModified) {
-                var result = MessageBox.Show("Документ был изменён. Сохранить изменения?", "Сохранение", MessageBoxButtons.YesNoCancel,  MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes) {
-                    SaveToFile(currentFilePath);
-                    return true;
-                }
-
-                else if (result == DialogResult.No)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            return true;
-        }
 
         private void tsmFind(object sender, EventArgs e)
         {
             FindForm find = new FindForm(this);
             find.Show();
 
-
-            //string subString = "abc";
-
-            //if (string.IsNullOrWhiteSpace(subString))
-            //    return;
-
-            //int countWord = 0;
-            //List<int> positions = new List<int>();
-
-            //int i = 0;
-            //while (i < rbnFile.Text.Length)
-            //{
-            //    int startIndex = rbnFile.Text.IndexOf(subString, i);
-            //    if (startIndex != -1)
-            //    {
-            //        positions.Add(startIndex);
-            //        countWord++;
-            //        i = startIndex + subString.Length;
-            //        rbnFile.Select(startIndex, subString.Length);
-            //        rbnFile.SelectionBackColor = Color.Red;
-            //    }
-            //    else
-            //    {
-            //        break;
-            //    }
-            //}
-            
         }
 
         private void tsmChangeTo(object sender, EventArgs e) 
@@ -192,6 +141,26 @@ namespace CodeRedactor
         { 
         
         }
+        private bool CheckSaveChanged() 
+        {
+            if (isModified) {
+                var result = MessageBox.Show("Документ был изменён. Сохранить изменения?", "Сохранение", MessageBoxButtons.YesNoCancel,  MessageBoxIcon.Question);
 
+                if (result == DialogResult.Yes) {
+                    SaveToFile(currentFilePath);
+                    return true;
+                }
+
+                else if (result == DialogResult.No)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return true;
+        }
     }
 }

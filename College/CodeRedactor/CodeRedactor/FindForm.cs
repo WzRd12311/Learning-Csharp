@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,8 @@ namespace CodeRedactor
     public partial class FindForm : Form
     {
         private Form1 mainForm;
-        private RichTextBoxFinds direction = RichTextBoxFinds.None;
-        private RichTextBoxFinds matchCase = RichTextBoxFinds.None;
 
-        private int startIndex = 0;
+        //private int startIndex = 0;
         public FindForm(Form1 f)
         {
             InitializeComponent();
@@ -33,31 +32,61 @@ namespace CodeRedactor
 
         private void FindClick(object sender, EventArgs e)
         {
-            mainForm.MainRTB.Find("abc", startIndex, direction | matchCase);
-        }
-
-        private void directionCheckedChanged(object sender, EventArgs e)
-        {
-            bool isBegin = radioBegin.Checked;
-            if (isBegin)
+            if (string.IsNullOrEmpty(tbSubStr.Text))
             {
-                direction = RichTextBoxFinds.None;
+                MessageBox.Show("Ошибка: Поле для поиска не может быть пустым", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+           
+            RichTextBoxFinds options = RichTextBoxFinds.None;
+            if (radioEnd.Checked)
+            {
+                options |= RichTextBoxFinds.Reverse;
+            }
+            if (cbMatchCase.Checked)
+            {
+                options |= RichTextBoxFinds.MatchCase;
+            }
+
+            int start = 0;
+            var mainRtb = mainForm.MainRTB;
+
+            if (options.HasFlag(RichTextBoxFinds.Reverse))
+            {
+                start = mainRtb.SelectionStart;
             }
             else
             {
-                direction = RichTextBoxFinds.Reverse;
+                start = mainRtb.SelectionStart + mainRtb.SelectionLength;
             }
-        }
 
-        private void modeCheckedChanged(object sender, EventArgs e)
-        {
-            if (cbMatchCase.Checked)
+            if (start >= mainRtb.TextLength && !options.HasFlag(RichTextBoxFinds.Reverse))
             {
-                matchCase = RichTextBoxFinds.MatchCase;
+                start = 0; 
             }
-            else 
+            if (start <= 0 && options.HasFlag(RichTextBoxFinds.Reverse))
             {
-                matchCase = RichTextBoxFinds.None;
+                start = mainRtb.TextLength; 
+            }
+
+            string searchText = tbSubStr.Text;
+            int foundPosition = mainRtb.Find(searchText, start, options);
+
+            if (foundPosition == -1)
+            {
+                int restartPosition = options.HasFlag(RichTextBoxFinds.Reverse) ? mainRtb.TextLength : 0;
+                foundPosition = mainRtb.Find(searchText, restartPosition, options);
+
+                if (foundPosition == -1)
+                {
+                    MessageBox.Show($"Не удается найти \"{searchText}\"", "Результат поиска", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            if (foundPosition != -1)
+            {
+                mainForm.Activate();
             }
         }
     }
