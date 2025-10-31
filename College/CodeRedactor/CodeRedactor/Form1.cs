@@ -106,12 +106,12 @@ namespace CodeRedactor
         {
             FindForm find = new FindForm(this);
             find.Show();
-
         }
 
         private void tsmChangeTo(object sender, EventArgs e) 
         {
-        
+            ChangeForm change = new ChangeForm(this);
+            change.Show();
         }
         private void tsmSelectAll(object sender, EventArgs e) 
         { 
