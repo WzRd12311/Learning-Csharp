@@ -138,8 +138,15 @@ namespace CodeRedactor
             rbnFile.Text = rbnFile.Text.Insert(rbnFile.SelectionStart, DateTime.Now.ToString());
         }
         private void tsmFontProperties(object sender, EventArgs e) 
-        { 
-        
+        {
+            using (FontDialog fontDialog = new FontDialog())
+            {
+                fontDialog.Font = Font;
+                if (fontDialog.ShowDialog() == DialogResult.OK)
+                {
+                    rbnFile.Font = fontDialog.Font;
+                }
+            }
         }
         private bool CheckSaveChanged() 
         {
@@ -161,6 +168,104 @@ namespace CodeRedactor
                 }
             }
             return true;
+        }
+
+        private void tsmZoomUp(object sender, EventArgs e)
+        {
+            if (rbnFile.ZoomFactor != 5f)
+                rbnFile.ZoomFactor += 0.1f;
+        }
+
+        private void tsmZoomDown(object sender, EventArgs e)
+        {
+            if(rbnFile.ZoomFactor != 0.1f)
+                rbnFile.ZoomFactor -= 0.1f;
+        }
+
+        private void tsmZoomDefault(object sender, EventArgs e)
+        {
+            rbnFile.ZoomFactor += 0.1f; //костыль для обновления рендеринга
+            rbnFile.ZoomFactor = 1f;
+        }
+
+        private void keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                e.Handled = true;
+                tsmNewFile(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.O)
+            {
+                e.Handled = true;
+                tsmOpenFile(sender, e);
+            }
+            else if (e.Control && e.Shift && e.KeyCode == Keys.S)
+            {
+                e.Handled = true;
+                tsmSaveFileAs(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.S)
+            {
+                e.Handled = true;
+                tsmSaveFile(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.F)
+            {
+                e.Handled = true;
+                tsmFind(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.H)
+            {
+                e.Handled = true;
+                tsmChangeTo(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.A)
+            {
+                e.Handled = true;
+                tsmSelectAll(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.C)
+            {
+                e.Handled = true;
+                tsmCopy(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.V)
+            {
+                e.Handled = true;
+                tsmPaste(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.X)
+            {
+                e.Handled = true;
+                tsmCut(sender, e);
+            }
+            else if (e.KeyCode == Keys.Delete && !e.Control && !e.Shift)
+            {
+                e.Handled = true;
+                tsmDelete(sender, e);
+            }
+            else if (e.KeyCode == Keys.F5)
+            {
+                e.Handled = true;
+                tsmWriteDate(sender, e);
+            }
+            else if (e.Control && (e.KeyCode == Keys.Add || e.KeyCode == Keys.Oemplus))
+            {
+                e.Handled = true;
+                tsmZoomUp(sender, e);
+            }
+            else if (e.Control && (e.KeyCode == Keys.Subtract || e.KeyCode == Keys.OemMinus))
+            {
+                e.Handled = true;
+                tsmZoomDown(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.D0)
+            {
+                e.Handled = true;
+                tsmZoomDefault(sender, e);
+            }
+
         }
     }
 }
